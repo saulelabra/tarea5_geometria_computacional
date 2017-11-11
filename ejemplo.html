@@ -1,0 +1,235 @@
+<!--Saúl Enrique Labra Cruz A01020725-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Uso de Canvas</title>
+  </head>
+
+  <script type="text/javascript" src="ejemplo.js"></script>
+
+  <body>
+    <h1>Figuras geométricas</h1>
+    <br>
+    <canvas id="dibujo" width="600" height="400" style="border:1px solid #000000;"></canvas>
+    <br>
+
+    <button type="button" onclick="limpiar()">Clear</button>
+
+    <table style="padding:20px">
+      <tr>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Polígonos</h2>
+          <p>Apotema:</p>
+          <input type="number" id="apotemaPoli" value="50">
+          <p>Lados(n):</p>
+          <input type="number" id="ladosPoli" value="5">
+          <button type="button" onclick="generar(0)">Generar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Trasladar</h2>
+          <p>Desplazamiento en X:</p>
+          <input type="number" id="despXPoli" value="100">
+          <p>Desplazamiento en Y:</p>
+          <input type="number" id="despYPoli" value="100">
+          <button type="button" onclick="trasPoli()">Trasladar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Rotar</h2>
+          <p>Grados de rotación:</p>
+          <input type="number" id="gradosPoliRot" value="60">
+          <button type="button" onclick="rotaPoli()">Rotar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Reflejar</h2>
+          <p>Reflejar horizontal:</p>
+          <button type="button" onclick="reflejaPoliHor()">Reflejar</button>
+          <p>Reflejar vertical:</p>
+          <button type="button" onclick="reflejaPoliVer()">Reflejar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Redimensionar</h2>
+          <p>Multiplicador de dimensiones</p>
+          <input type="number" id="multiPoli" value="2">
+          <button type="button" onclick="redimensionarPoli()">Redimensionar</button>
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Arcos</h2>
+          <p>Radio:</p>
+          <input type="number" id="radioArc" value="50">
+          <p>Ángulo inicial:</p>
+          <input type="number" id="angIniArc" value="0">
+          <p>Ángulo final:</p>
+          <input type="number" id="angFinArc" value="56">
+          <button type="button" onclick="generar(1)">Generar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Trasladar</h2>
+          <p>Desplazamiento en X:</p>
+          <input type="number" id="despXArco" value="100">
+          <p>Desplazamiento en Y:</p>
+          <input type="number" id="despYArco" value="100">
+          <button type="button" onclick="trasArco()">Trasladar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Rotar</h2>
+          <p id="pruebaGrados">Grados de rotación:</p>
+          <input type="number" id="gradosArcRot" value="60">
+          <button type="button" onclick="rotarArco()">Rotar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Reflejar</h2>
+          <p>Reflejar horizontal:</p>
+          <button type="button" onclick="reflejaArcoHor()">Reflejar</button>
+          <p>Reflejar vertical:</p>
+          <button type="button" onclick="reflejaArcoVer()">Reflejar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Redimensionar</h2>
+          <p>Multiplicador de dimensiones</p>
+          <input type="number" id="multiArco" value="2">
+          <button type="button" onclick="redimensionarArco()">Redimensionar</button>
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Cubo</h2>
+          <p>Lado:</p>
+          <input type="number" id="ladoCubo" value="60">
+          <button type="button" onclick="generar(2)">Generar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Trasladar</h2>
+          <p>Desplazamiento en X:</p>
+          <input type="number" id="despXCubo" value="100">
+          <p>Desplazamiento en Y:</p>
+          <input type="number" id="despYCubo" value="100">
+          <button  type="button" onclick="trasladarCubo()">Trasladar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Rotar</h2>
+          <input type="number" id="gradosCuboRot" value="60">
+          <button type="button" onclick="rotarCubo()">Rotar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Reflejar</h2>
+          <p>Reflejar horizontal:</p>
+          <button type="button" onclick="reflejaCuboHor()">Reflejar</button>
+          <p>Reflejar vertical:</p>
+          <button type="button" onclick="reflejaCuboVer()">Reflejar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Redimensionar</h2>
+          <p>Multiplicador de dimensiones</p>
+          <input type="number" id="multiCubo" value="2">
+          <button type="button" onclick="redimensionarCubo()">Redimensionar</button>
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Prisma rectangular</h2>
+          <p>Largo:</p>
+          <input type="number" id="largoPrisRect" value="30">
+          <p>Ancho:</p>
+          <input type="number" id="anchoPrisRect" value="60">
+          <p>Alto:</p>
+          <input type="number" id="altoPrisRect" value="100">
+          <button type="button" onclick="generar(3)">Generar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Trasladar</h2>
+          <p>Desplazamiento en X:</p>
+          <input type="number" id="despXPrisRect" value="100">
+          <p>Desplazamiento en Y:</p>
+          <input type="number" id="despYPrisRect" value="100">
+          <button  type="button" onclick="trasladarPrisRect()">Trasladar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Rotar</h2>
+          <input type="number" id="gradosPrisRectRot" value="60">
+          <button type="button" onclick="rotarPrisRect()">Rotar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Reflejar</h2>
+          <p>Reflejar horizontal:</p>
+          <button type="button" onclick="reflejaPrisRectHor()">Reflejar</button>
+          <p>Reflejar vertical:</p>
+          <button type="button" onclick="reflejaPrisRectVer()">Reflejar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Redimensionar</h2>
+          <p>Multiplicador de dimensiones</p>
+          <input type="number" id="multiPrisRect" value="2">
+          <button type="button" onclick="redimensionarPrisRect()">Redimensionar</button>
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Prisma triangular</h2>
+          <p>Lado1:</p>
+          <input type="number" id="lado1">
+          <p>Lado2:</p>
+          <input type="number" id="lado2">
+          <p>Lado3:</p>
+          <input type="number" id="lado3">
+          <p>Altura:</p>
+          <input type="number" id="ptAltura">
+          <button type="button">Generar</button>
+        </td>
+
+
+
+      <tr>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Cono</h2>
+          <p>Radio:</p>
+          <input type="number" id="radioC" value="50">
+          <p>Alto:</p>
+          <input type="number" id="altoC" value="100">
+          <button type="button" onclick="generar(5)">Generar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Trasladar</h2>
+          <p>Desplazamiento en X:</p>
+          <input type="number" id="despXC" value="100">
+          <p>Desplazamiento en Y:</p>
+          <input type="number" id="despYC" value="100">
+          <button  type="button" onclick="trasC()">Trasladar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Rotar</h2>
+          <input type="number" id="gradosC" value="60">
+          <button type="button" onclick="rotarC()">Rotar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Reflejar</h2>
+          <p>Reflejar horizontal:</p>
+          <button type="button" onclick="reflejarCHor()">Reflejar</button>
+          <p>Reflejar vertical:</p>
+          <button type="button" onclick="reflejarCVer()">Reflejar</button>
+        </td>
+        <td style="vertical-align:top; padding:20px; border:1px solid black">
+          <h2>Redimensionar</h2>
+          <p>Multiplicador de dimensiones</p>
+          <input type="number" id="multiC" value="2">
+          <button type="button" onclick="redimensionarC()">Redimensionar</button>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
